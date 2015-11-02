@@ -5,12 +5,3 @@ class Home extends React.Component {
     );
   }
 }
-
-let documentReady = () => {
-  ReactDOM.render(
-    <Home />,
-    document.getElementById('home')
-  );
-}
-
-$(documentReady);
