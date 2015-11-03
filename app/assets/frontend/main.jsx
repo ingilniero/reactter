@@ -1,9 +1,11 @@
-import Greet from './greet';
+import TweetBox from './components/TweetBox';
 
 class Home extends React.Component {
   render() {
     return (
-      <Greet />
+      <div className='container'>
+        <TweetBox />
+      </div>
     );
   }
 }
