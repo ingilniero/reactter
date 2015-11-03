@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/ingilniero/reactter/issues"
   },
-  "homepage": "https://github.com/ingilniero/reactter"
+  "homepage": "https://github.com/ingilniero/reactter",
+  "dependencies": {
+    "babel-loader": "^5.0.0"
+  }
 }
