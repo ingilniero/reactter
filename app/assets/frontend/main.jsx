@@ -3,14 +3,17 @@ import TweetList from './components/TweetList';
 
 let mockTweets = [
   {
+    id: 1,
     name: 'Gilberto Villa',
     body: 'My #firstTweet'
   },
   {
+    id: 2,
     name: 'Eduardo Figarola',
     body: 'My #firstTweet'
   },
   {
+    id: 3,
     name: 'Jesus Figueroa',
     body: 'My #firstTweet'
   }
