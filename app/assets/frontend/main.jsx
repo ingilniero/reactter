@@ -31,10 +31,10 @@ class Home extends React.Component {
 }
 
 let documentReady = () => {
-  ReactDOM.render(
-    <Home />,
-    document.getElementById('home')
-  );
+  let reactNode = document.getElementById('home');
+  if (reactNode) {
+    ReactDOM.render(<Home />, reactNode);
+  }
 }
 
 $(documentReady);
