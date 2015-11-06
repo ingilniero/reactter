@@ -4,7 +4,7 @@ class TweetsController < ApplicationController
   end
 
   def create
-    tweet = Tweet.create(body: params[:tweet], user_id: current_user)
+    tweet = Tweet.create(body: params[:body], user_id: current_user.id)
     render json: tweet, status: :created
   end
 end

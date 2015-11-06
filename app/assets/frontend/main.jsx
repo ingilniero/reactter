@@ -10,14 +10,16 @@ class Home extends React.Component {
   }
 
   addTweet(tweetToAdd) {
-    let newTweetsList = this.state.tweetsList;
-    newTweetsList.unshift({
-      id: Date.now(),
-      name: 'Guest',
+    $.post('/tweets', {
       body: tweetToAdd
-    });
+    })
+    .success( savedTweet => {
+      let newTweetsList = this.state.tweetsList;
 
-    this.setState({ tweetsList: newTweetsList });
+      newTweetsList.unshift(savedTweet);
+      this.setState({ tweetsList: newTweetsList });
+    })
+    .error(error => console.log(error));
   }
 
   componentDidMount() {
