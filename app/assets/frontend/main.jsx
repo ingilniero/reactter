@@ -9,6 +9,17 @@ class Home extends React.Component {
     this.state = { tweetsList: mockTweets }
   }
 
+  formattedTweets(tweets) {
+    let formattedList = tweets.map(tweet => {
+      tweet.formattedDate = moment(tweet.created_at).fromNow();
+      return tweet;
+    });
+
+    return {
+      tweetsList: formattedList
+    }
+  }
+
   addTweet(tweetToAdd) {
     $.post('/tweets', {
       body: tweetToAdd
@@ -17,14 +28,14 @@ class Home extends React.Component {
       let newTweetsList = this.state.tweetsList;
 
       newTweetsList.unshift(savedTweet);
-      this.setState({ tweetsList: newTweetsList });
+      this.setState(this.formattedTweets(newTweetsList));
     })
     .error(error => console.log(error));
   }
 
   componentDidMount() {
     $.ajax('/tweets')
-      .success(data => this.setState({ tweetsList: data }))
+      .success(data => this.setState(this.formattedTweets(data)))
       .error(error => console.log(error))
   }
 
