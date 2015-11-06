@@ -7,5 +7,12 @@ export default {
       actionType: ActionTypes.RECEIVED_TWEETS,
       tweets: tweets
     });
+  },
+
+  receivedOneTweet(tweet) {
+    AppDispatcher.dispatch({
+      actionType: ActionTypes.RECEIVED_ONE_TWEET,
+      tweet: tweet
+    });
   }
 }

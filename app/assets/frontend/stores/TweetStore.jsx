@@ -35,6 +35,10 @@ AppDispatcher.register( action => {
       _tweets = action.tweets;
       TweetStore.emitChange();
       break;
+    case ActionTypes.RECEIVED_ONE_TWEET:
+      _tweets.unshift(action.tweet);
+      TweetStore.emitChange();
+      break;
     default:
       // no op
   }

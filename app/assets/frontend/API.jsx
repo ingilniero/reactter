@@ -4,5 +4,13 @@ export default {
     $.ajax('/tweets')
       .success(tweets => ServerActions.receivedTweets(tweets))
       .error(error => console.log(error))
+  },
+
+  createTweet(body) {
+    $.post('/tweets', {
+      body: body
+    })
+    .success( tweet => ServerActions.receivedOneTweet(tweet))
+    .error(error => console.log(error));
   }
 }
