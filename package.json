@@ -20,6 +20,8 @@
   },
   "homepage": "https://github.com/ingilniero/reactter",
   "dependencies": {
-    "babel-loader": "^5.0.0"
+    "babel-loader": "^5.0.0",
+    "events": "^1.1.0",
+    "flux": "^2.1.1"
   }
 }
