@@ -1,23 +1,19 @@
 import TweetBox from './components/TweetBox';
 import TweetList from './components/TweetList';
+import TweetActions from './actions/TweetActions';
+import TweetStore from './stores/TweetStore';
 
-let mockTweets = [];
+TweetActions.getAllTweets();
+
+let getAppState = () => {
+  return { tweetsList: TweetStore.getAll() };
+}
 
 class Home extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { tweetsList: mockTweets }
-  }
-
-  formattedTweets(tweets) {
-    let formattedList = tweets.map(tweet => {
-      tweet.formattedDate = moment(tweet.created_at).fromNow();
-      return tweet;
-    });
-
-    return {
-      tweetsList: formattedList
-    }
+    this.state = getAppState();
+    this._onChange = this._onChange.bind(this);
   }
 
   addTweet(tweetToAdd) {
@@ -33,10 +29,16 @@ class Home extends React.Component {
     .error(error => console.log(error));
   }
 
+  _onChange() {
+    this.setState(getAppState());
+  }
+
   componentDidMount() {
-    $.ajax('/tweets')
-      .success(data => this.setState(this.formattedTweets(data)))
-      .error(error => console.log(error))
+    TweetStore.addChangeListener(this._onChange);
+  }
+
+  componentWillUnmount() {
+    TweetStore.removeChangeListener(this._onChange);
   }
 
   render() {
