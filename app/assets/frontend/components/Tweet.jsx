@@ -7,7 +7,6 @@ export default class Tweet extends React.Component {
         <p>
           {this.props.body}
         </p>
-        <a href='#!' className='secondary-content'><i className='material-icons'>grade</i></a>
       </li>
     );
   }
