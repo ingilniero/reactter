@@ -22,6 +22,8 @@
   "dependencies": {
     "babel-loader": "^5.0.0",
     "events": "^1.1.0",
-    "flux": "^2.1.1"
+    "flux": "^2.1.1",
+    "react": "^0.14.0-beta3",
+    "react-dom": "^0.14.0-beta3"
   }
 }
