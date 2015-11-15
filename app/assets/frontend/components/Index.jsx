@@ -4,6 +4,8 @@ import TweetList from './TweetList';
 import TweetActions from '../actions/TweetActions';
 import TweetStore from '../stores/TweetStore';
 
+import { Link } from 'react-router';
+
 TweetActions.getAllTweets();
 
 let getAppState = () => {
@@ -32,6 +34,7 @@ export default class Index extends React.Component {
   render() {
     return (
       <div className='container'>
+        <Link to='/follow'>Who to Follow</Link>
         <TweetBox />
         <TweetList tweets={this.state.tweetsList}/>
       </div>
