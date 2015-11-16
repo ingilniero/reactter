@@ -12,5 +12,11 @@ export default {
     })
     .success( tweet => ServerActions.receivedOneTweet(tweet))
     .error(error => console.log(error));
-  }
+  },
+
+  getAllUsers() {
+    $.ajax('/followers')
+      .success(users => ServerActions.receivedUsers(users))
+      .error(error => console.log(error))
+  },
 }
