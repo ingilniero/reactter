@@ -6,12 +6,16 @@ class User < ActiveRecord::Base
 
   has_many :tweets
 
- def display_name
+  def display_name
    first_name.present? ? "#{first_name} #{last_name}" : email
- end
+  end
 
   def gravatar
     hash = Digest::MD5.hexdigest(email)
     "http://www.gravatar.com/avatar/#{hash}"
+  end
+
+  def as_json(option={})
+    { name: display_name, gravatar: gravatar }
   end
 end
