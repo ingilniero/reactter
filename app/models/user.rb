@@ -16,6 +16,6 @@ class User < ActiveRecord::Base
   end
 
   def as_json(option={})
-    { name: display_name, gravatar: gravatar }
+    { id: id, name: display_name, gravatar: gravatar }
   end
 end
