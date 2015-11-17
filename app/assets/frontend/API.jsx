@@ -17,6 +17,12 @@ export default {
   getAllUsers() {
     $.ajax('/followers')
       .success(users => ServerActions.receivedUsers(users))
-      .error(error => console.log(error))
+      .error(error => console.log(error));
   },
+
+  followUser(userId) {
+    $.post('/followers', { user_id: userId })
+      .success(follower => ServerActions.receivedOneFollower(follower))
+      .error(error => console.log(error));
+  }
 }

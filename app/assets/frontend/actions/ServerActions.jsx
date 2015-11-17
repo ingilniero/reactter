@@ -21,4 +21,10 @@ export default {
       users: users
     });
   },
+  receivedOneFollower(follower) {
+    AppDispatcher.dispatch({
+      actionType: ActionTypes.RECEIVED_ONE_FOLLOWER,
+      follower: follower
+    });
+  }
 }
